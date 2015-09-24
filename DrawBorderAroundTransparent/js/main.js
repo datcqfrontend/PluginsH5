@@ -58,8 +58,14 @@
 
       x += dx; 
       y += dy; 
+
+      //console.log(x,y);
+      //console.log(s[0],s[1]);
     } while (s[0] != x || s[1] != y); 
 
+    console.log("break");
+
+    //console.log(c.length);
     return c; 
   }; 
 
@@ -90,6 +96,8 @@
 })();
 
 $(document).ready(function(){
+	window.areaPoints = [];
+
 	var canvas = $('#canvas')[0];
 
 	var cw = canvas.width,
@@ -156,6 +164,15 @@ $(document).ready(function(){
 	}
 	img.src="images/temp_5.png";
 
+	function checkTransparent(data){
+		for(var i = 0, n = data.length; i < n; i += 4) {
+            var alpha = data[i + 3];
+            if(alpha==0){
+            	return true;
+            }
+        }
+        return false;
+	}
 
 	// redraw the canvas
 	// user determines if original-image or outline path or both are visible
@@ -191,18 +208,34 @@ $(document).ready(function(){
 		    ctx.stroke();
 	  	}
 
-	  	setTimeout(function(){
-		  	
+	  	//setTimeout(function(){		  	
 		  	imgData=ctx.getImageData(0,0,canvas.width,canvas.height);
 		  	data=imgData.data;
-		  	points=geom.contour(defineTransparent);
 
-		  	if(points){
-		  		redraw2();	
-		  	}else{
-		  		console.log("End draw!!!");
+		  	//console.log(data[0]);
+
+		  	if(checkTransparent(data)){
+		  		points=geom.contour(defineTransparent);	
+
+		  		var arrX = [], arrY = [];
+		  		for(var j=0;j<points.length;j++){
+		  			arrX.push(points[j][0]);
+		  			arrY.push(points[j][1]);
+		  		}
+
+		  		var minX = Math.min.apply(Math,arrX);
+		  		var maxX = Math.max.apply(Math,arrX);
+
+		  		var minY = Math.min.apply(Math,arrY);
+		  		var maxY = Math.max.apply(Math,arrY);
+
+		  		console.log(minX,maxX,minY,maxY);
+
+		  		areaPoints.push(points);
+
+		  		redraw2();
 		  	}		  	
-		 },5000);
+		//},50);
 	}
 
 
