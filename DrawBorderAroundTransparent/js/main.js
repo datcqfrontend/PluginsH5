@@ -169,31 +169,36 @@ $(document).ready(function(){
 	    ctx.drawImage(img,canvas.width/2-img.width/2,canvas.height/2-img.height/2);
 	  }
 
-	  // draw the path (consisting of connected points)
-	  if($showOutline.is(':checked')){
+	  redraw2();
+	}
+
+	function redraw2(){
+		// draw the path (consisting of connected points)
+	  	if($showOutline.is(':checked')){
 	    // draw outline path
-	    ctx.beginPath();
-	    ctx.moveTo(points[0][0],points[0][4]);
-	    for(var i=1;i<points.length;i++){
-	      var point=points[i];
-	      ctx.lineTo(point[0],point[1]);
-	    }
-	    ctx.closePath();
+		    ctx.beginPath();
+		    ctx.moveTo(points[0][0],points[0][4]);
+		    for(var i=1;i<points.length;i++){
+		      var point=points[i];
+		      ctx.lineTo(point[0],point[1]);
+		    }
+		    ctx.closePath();
 
-	    ctx.fillStyle = '#8ED6FF';
-      	ctx.fill();
-	    ctx.stroke();
-	  }
+		    ctx.fillStyle = '#8ED6FF';
+	      	ctx.fill();
+		    ctx.stroke();
+	  	}
 
-	  setTimeout(function(){
-	  	console.log("Redraw");
-	  	
-	  	imgData=ctx.getImageData(0,0,canvas.width,canvas.height);
-	  	data=imgData.data;
-	  	points=geom.contour(defineTransparent);
+	  	setTimeout(function(){
+		  	console.log("Redraw");		  	
+		  	imgData=ctx.getImageData(0,0,canvas.width,canvas.height);
+		  	data=imgData.data;
+		  	points=geom.contour(defineTransparent);
 
-	  	redraw();
-	  },2000);
+		  	console.log(points.length);
+
+		  	redraw2();
+		 },5000);
 	}
 
 
