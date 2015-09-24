@@ -173,6 +173,8 @@ $(document).ready(function(){
 	}
 
 	function redraw2(){
+		console.log("Redraw 2");		  	
+
 		// draw the path (consisting of connected points)
 	  	if($showOutline.is(':checked')){
 	    // draw outline path
@@ -190,14 +192,16 @@ $(document).ready(function(){
 	  	}
 
 	  	setTimeout(function(){
-		  	console.log("Redraw");		  	
+		  	
 		  	imgData=ctx.getImageData(0,0,canvas.width,canvas.height);
 		  	data=imgData.data;
 		  	points=geom.contour(defineTransparent);
 
-		  	console.log(points.length);
-
-		  	redraw2();
+		  	if(points){
+		  		redraw2();	
+		  	}else{
+		  		console.log("End draw!!!");
+		  	}		  	
 		 },5000);
 	}
 
