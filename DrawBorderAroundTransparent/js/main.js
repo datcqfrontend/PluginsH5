@@ -154,7 +154,7 @@ $(document).ready(function(){
 	  redraw();
 
 	}
-	img.src="images/temp_4.png";
+	img.src="images/temp_5.png";
 
 
 	// redraw the canvas
@@ -179,8 +179,21 @@ $(document).ready(function(){
 	      ctx.lineTo(point[0],point[1]);
 	    }
 	    ctx.closePath();
+
+	    ctx.fillStyle = '#8ED6FF';
+      	ctx.fill();
 	    ctx.stroke();
 	  }
+
+	  setTimeout(function(){
+	  	console.log("Redraw");
+	  	
+	  	imgData=ctx.getImageData(0,0,canvas.width,canvas.height);
+	  	data=imgData.data;
+	  	points=geom.contour(defineTransparent);
+
+	  	redraw();
+	  },2000);
 	}
 
 
