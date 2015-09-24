@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title>Working with form field - Checked Binding</title>	
+			
+</head>
+<body>
+	<div id="viewModelChecked1">
+		<p>Send me spam: <input type="checkbox" data-bind="checked: wantsSpam" /></p>
+		<hr/>
+		<div data-bind="visible: wantsSpam">
+			Preferred flavors of spam:
+			<div><input type="checkbox" value="cherry" data-bind="checked: spamFlavors" /> Cherry</div>
+			<div><input type="checkbox" value="almond" data-bind="checked: spamFlavors" /> Almond</div>
+			<div><input type="checkbox" value="msg" data-bind="checked: spamFlavors" /> Monosodium Glutamate</div>
+		</div>
+		<hr/>
+		<div data-bind="visible: wantsSpam">
+			Preferred flavor of spam:
+			<div><input type="radio" name="flavorGroup" value="cherry" data-bind="checked: spamFlavor" /> Cherry</div>
+			<div><input type="radio" name="flavorGroup" value="almond" data-bind="checked: spamFlavor" /> Almond</div>
+			<div><input type="radio" name="flavorGroup" value="msg" data-bind="checked: spamFlavor" /> Monosodium Glutamate</div>
+		</div>
+		<hr/>
+		<!-- ko foreach: items -->
+		<input type="checkbox" data-bind="attr: { 'data-id': $index}, checkedValue: $data, checked: checkChecked($data.itemName)" />
+		<span data-bind="text: $index"></span>:<span data-bind="text: itemName"></span>
+	<!-- /ko -->
+	</div>
+	<hr/>		
+	
+	
+	
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

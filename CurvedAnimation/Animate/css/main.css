@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+.animatingDiv {
+    width: 40px;
+    height: 40px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    margin-left: -20px;
+    margin-top: -20px;
+    left: 50px;
+    top: 50px;
+    position: absolute;
+    background: blue;
+}

@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>Rate Limiting</title>	
+			
+</head>
+<body>
+	<div id="viewModel1">
+		<ul id="people" data-bind='template: { name: "personTmpl", foreach: people }'></ul>
+		<script id="personTmpl" type="text/html">
+			<li>
+				<a class="remove" href="#"> x </a>
+				<span data-bind='text: name'></span>
+				<a class="add" href="#"> add child </a>
+				<ul data-bind='template: { name: "personTmpl", foreach: children }'></ul>
+			</li>
+		</script>
+	</div>
+	<hr/>
+	
+		
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/require.js"></script>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

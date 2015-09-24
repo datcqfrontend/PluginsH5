@@ -1,0 +1,118 @@
+@charset "utf-8";
+.P03_T05_S04 .board, .P03_T05_S04 .title1_main, .P03_T05_S04 .title_LT, .P03_T05_S04 .title_RT, .P03_T05_S04 .txt_BL, .P03_T05_S04 .txt_BR, .P03_T05_S04 .txt_bottom, .P03_T05_S04 .highter {
+	position: absolute;
+}
+.P03_T05_S04 .title1_main {
+	font-family: 'tradegothicltstd_bd2';
+	color: #000000;
+	font-size: 25px;
+	width: 867px;
+	height: 32px;
+	top: 50px;
+	left: 20px;
+}
+.P03_T05_S04 .board {
+	background: url(../images/board.png) no-repeat;
+	width: 726px;
+	height: 466px;
+	top: 100px;
+	left: 136px;
+}
+.P03_T05_S04 .title_LT {
+	font-family: 'tradegothicltstd_bd2';
+	color: #ffffff;
+	font-size: 18px;
+	top: 28px;
+	left: 46px;
+}
+.P03_T05_S04 .title_RT {
+	font-family: 'tradegothicltstd_bd2';
+	color: #ffffff;
+	font-size: 18px;
+	top: 5px;
+	left: 478px;
+	text-align: center;
+}
+.P03_T05_S04 .txt_BL {
+	top: 64px;
+	left: -20px;
+}
+.P03_T05_S04 .txt_BL ul li {
+	list-style: none;
+	font-family: 'tradegothicltstd';
+	font-size: 17px;
+	color: #515151;
+	padding-bottom: 12px;
+	line-height: 22px;
+}
+.P03_T05_S04 .txt_BL ul li.line {
+	line-height: 10px !important;
+}
+.P03_T05_S04 .txt_BL ul li.bold {
+	font-family: 'tradegothicltstd_bd2' !important;
+	color: #000;
+	position: absolute;
+	top: 280px;
+}
+.P03_T05_S04 .txt_BR {
+	top: 64px;
+	left: 484px;
+}
+.P03_T05_S04 .txt_BR ul li {
+	list-style: none;
+	font-family: 'tradegothicltstd';
+	font-size: 17px;
+	color: #515151;
+	padding-bottom: 12px;
+	line-height: 22px;
+	text-align: right;
+}
+.P03_T05_S04 .txt_BR ul li.line {
+	line-height: 10px !important;
+}
+.P03_T05_S04 .txt_BR ul li.PT {
+	padding-top: 28px;
+	padding-bottom: 40px;
+}
+.P03_T05_S04 .txt_BR ul li.bold {
+	font-family: 'tradegothicltstd_bd2' !important;
+	color: #000;
+	top: 280px;
+	position: absolute;
+}
+.P03_T05_S04 .txt_bottom {
+	background: url(../images/red_bullet.png) no-repeat 0px 0px;
+	top: 395px;
+	left: 10px;
+	font-family: 'tradegothicltstd';
+	font-size: 20px;
+	line-height: 16px;
+	width: 790px;
+	height: 25px;
+	padding-top: 10px;
+	padding-left: 32px;
+}
+.P03_T05_S04 .txt_bottom span {
+	padding-left: 10px;
+}
+.P03_T05_S04 .highter {
+	font-family: 'tradegothicltstd_bd2';
+	top: 433px;
+	font-size: 14px;
+	color: black;
+	left: 30px;
+}
+.P03_T05_S04 .btn_plus {
+	top: 425px;
+	left: 876px;
+}
+.P03_T05_S04 .pu_text1 {
+	background: url(../images/red_bullet.png) no-repeat 0px 4px;
+	font-size: 32px;
+	position: absolute;
+	font-family: 'tradegothicltstd';
+	color: #fff;
+	top: 100px;
+	left: 50px;
+	padding-left: 30px;
+}

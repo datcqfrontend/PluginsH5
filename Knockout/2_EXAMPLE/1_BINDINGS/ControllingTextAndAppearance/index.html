@@ -1,0 +1,67 @@
+<html>
+<head>
+	<title>Controlling text and appearance</title>	
+			
+</head>
+<body>
+	<h1>Binding Visible</h1>
+	<div id="message1" data-bind="visible: shouldShowMessage">
+		You will see this message only when "shouldShowMessage" holds a true value.
+	</div>	
+	<div id="message2" data-bind="visible: myValues().length > 0">
+		You will see this message only when 'myValues' has at least one member.
+	</div>
+	<hr/>
+	
+	<h1>Binding Text 1</h1>
+	<div id="bindingText1">
+		Today's message is: <span data-bind="text: myMessage"></span>
+		<!--span data-bind="text: myMessage.toString()"></span-->
+	</div>
+		
+	<h1>Binding Text 2</h1>
+	<div id="bindingText2">
+		The item is <span data-bind="text: priceRating"></span> today.
+	</div>
+	<hr/>
+	
+	<h1>Binding HTML</h1>
+	<div id="bindingHTML">
+		The item is <span data-bind="html: detailHTMLs"></span> today.
+	</div>
+	<hr/>
+	
+	<h1>Binding CSS1</h1>
+	<div id="bindingCSS1">
+		<div data-bind="css: { profitWarning: currentProfit() < 0 }">
+		   Profit Information
+		</div>
+	</div>
+	<h1>Binding CSS2</h1>
+	<div id="bindingCSS2">
+		<div data-bind="css: profitStatus">
+		   Profit Information
+		</div>
+	</div>
+	<hr/>
+	
+	<h1>Binding Style</h1>
+	<div id="bindingStyle">
+		<div data-bind="style: { color: currentProfit() < 0 ? 'red' : 'black' }">
+		   Profit Information
+		</div>
+	</div>
+	<hr/>
+	
+	<h1>Binding Attr</h1>
+	<div id="bindingAttr">
+		<a data-bind="attr: { href: url, title: details }">
+			Report
+		</a>
+	</div>
+	
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

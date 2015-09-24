@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+#test {
+    height: 200px;
+    width: 400px;
+    border: 2px solid black;
+    position: relative;
+}
+#test img {
+    position: absolute;
+}

@@ -1,0 +1,7 @@
+{
+   "callback":          "drcom.player", 
+   "closePresentation": true,                      
+   "listPresentation":  true,                    
+   "loadingPage":       "icons/loadingPage.png",                   
+   "background":        false   
+}

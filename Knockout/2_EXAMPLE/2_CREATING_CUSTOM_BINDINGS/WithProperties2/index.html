@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title>Custom Binding - With Properties</title>	
+			
+</head>
+<body>
+	<div id="viewModel1">
+		<div data-bind="withProperties: { emotion: 'happy' }">
+			Today I feel <span data-bind="text: emotion"></span>. <!-- Displays: happy -->
+		</div>
+		<div data-bind="withProperties: { emotion: 'whimsical' }">
+			Today I feel <span data-bind="text: emotion"></span>. <!-- Displays: whimsical -->
+		</div>
+	
+		<div data-bind="withProperties2: { displayMode: 'twoColumn' }">
+			The outer display mode is <span data-bind="text: displayMode"></span>.
+			<div data-bind="withProperties2: { displayMode: 'doubleWidth' }">
+				The inner display mode is <span data-bind="text: displayMode"></span>, but I haven't forgotten
+				that the outer display mode is <span data-bind="text: $parentContext.displayMode"></span>.
+			</div>
+		</div>
+	</div>
+	<hr/>
+	
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

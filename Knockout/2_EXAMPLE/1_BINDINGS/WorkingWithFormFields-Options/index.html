@@ -1,0 +1,58 @@
+<html>
+<head>
+	<title>Working with form field - Options Binding</title>	
+			
+</head>
+<body>
+	<div id="viewModelOptions1">
+		<p>
+			Destination country:
+			<select data-bind="options: availableCountries"></select>
+		</p>
+	<hr/>	
+		<p>
+			Choose some countries you would like to visit:
+			<select data-bind="options: availableCountries" size="5" multiple="true"></select>
+		</p>
+	<hr/>	
+		<p>
+			Your country:
+			<select data-bind="options: availableCountries2,
+							   optionsText: 'countryName',
+							   value: selectedCountry,
+							   optionsCaption: 'Choose...'"></select>
+							   
+			<!-- Same as example 3, except the <select> box expressed as follows: -->
+			<select data-bind="options: availableCountries2,
+								optionsText: function(item) {
+									return item.countryName + ' (pop: ' + item.countryPopulation + ')'
+								},
+								value: selectedCountry,
+								optionsCaption: 'Choose...'"></select>
+								
+								
+		</p>
+		 
+		<div data-bind="visible: selectedCountry"> <!-- Appears when you select something -->
+			You have chosen a country with population
+			<span data-bind="text: selectedCountry() ? selectedCountry().countryPopulation : 'unknown'"></span>.
+		</div>
+		
+		<p>
+			<select size=3 data-bind="
+				options: myItems,
+				optionsText: 'name',
+				optionsValue: 'id',
+				optionsAfterRender: setOptionDisable">
+			</select>
+		</p>
+	<hr/>	
+	
+	</div>
+		
+	
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

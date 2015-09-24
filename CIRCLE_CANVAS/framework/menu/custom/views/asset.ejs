@@ -1,0 +1,36 @@
+<ul class="<%= typeof hassubmenu == "undefined" ? '' : 'submenu'%>">
+  <%
+    for(var i = 0; i < assets.length ; i++) { 
+  %>
+    <li class="asset<%= assets[i].id %> asset"  <%= assets[i] %>>
+
+	
+
+		<a>   
+		<span class="border"></span>
+		<%if(assets[i].submenu.length > 0){%>  
+			<span class="icon_child"></span>
+		<%}%>
+	    <% if(assets[i].thumbPath!=null) { %>
+		 <img src="<%= assets[i].thumbPath %>" alt="<%=assets[i].name%>"/>
+			
+		<%}%>
+		
+		  <% if(drcom.config.navigation.menu.showTitle==true) {%>
+				<span class="text"><%==assets[i].title %></span>
+		  <%}%>
+
+		   
+		  </a>
+	  
+	  
+	  
+      <%if(assets[i].submenu.length > 0){%>  
+        <%==$.View('//menu/custom/views/subasset.ejs', {assets: assets[i].submenu, hassubmenu:true})%>
+        <%}%>
+	  
+    </li>
+  <%
+    }
+   %>
+</ul>

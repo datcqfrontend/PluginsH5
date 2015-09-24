@@ -1,0 +1,1 @@
+steal("./alert.js", "./circle.js", "./cloud-carousel.1.0.5.js", "./flipflap2.js", "./flipflap3.js", "./flipflap4.js");

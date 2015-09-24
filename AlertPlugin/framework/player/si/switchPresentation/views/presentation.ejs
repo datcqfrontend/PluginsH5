@@ -1,0 +1,40 @@
+<%
+	if(!presentations.selectedPrezs) presentations.selectedPrezs = presentations;
+%>	
+<div class="siPresentationClip"></div>
+<div class="siPresentationList">
+	<popover>
+				<div class="header"><h3></h3></div>
+				<div class="section">
+					<div class="popover-content">
+						<ul> 
+							<%for(var i = 0; i < presentations.selectedPrezs.length ; i++){%>
+							<li class="siPresentationLink presentation<%= presentations.selectedPrezs[i].id %> presentation <%=presentations.selectedPrezs[i].id==current_presentation.id?'active':''%>" <%= presentations.selectedPrezs[i] %>>
+							    <span class="title"><%= presentations.selectedPrezs[i].name %></span>
+							    <span class="checkmark"></span>
+							</li>
+							<%}%>
+								
+						</ul>
+					</div>
+				</div>
+	</popover>
+</div>
+<%
+	if(presentations.selectedLibs){
+%>	
+	<div class="siLibraryList">
+	<span>Library</span>  |  <span class="tabPrez"><a href="#">Presentation</a></span>
+	<hr/>
+	<%for(var i = 0; i < presentations.selectedLibs.length ; i++){%>
+	<div class="siLibraryLink library<%= presentations.selectedLibs[i].id %> library" <%= presentations.selectedLibs[i] %>>
+	    <%= presentations.selectedLibs[i].title %>&nbsp; 
+	</div>
+	<div class="siLibSend" <%= presentations.selectedLibs[i] %> >
+		<a href="#">Send</a>
+	</div>
+	<%}%>
+	</div>
+<%
+	}
+%>	

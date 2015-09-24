@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>Custom Binding - With Properties</title>	
+			
+</head>
+<body>
+	<div id="viewModel1">
+		<div data-bind="randomOrder: true">
+			<div>First</div>
+			<div>Second</div>
+			<div>Third</div>
+		</div>
+		
+		<!-- ko randomOrder2: true -->
+			<div>First</div>
+			<div>Second</div>
+			<div>Third</div>
+		<!-- /ko -->
+	</div>
+	<hr/>
+	
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: 'helve_bd';
+	src: url('../fonts/helveticaneueltstd_bd.ttf');
+}
+
+@font-face {
+	font-family: 'helve_lt';
+	src: url('../fonts/helveticaneueltstd_lt.ttf');
+}
+
+@font-face {
+	font-family: 'helve_md';
+	src: url('../fonts/helveticaneueltstd_md.ttf');
+}
+@font-face {
+	font-family: 'helve_mdit';
+	src: url('../fonts/helveticaneueltstd_mdit.otf');
+}
+
+@font-face {
+	font-family: 'helve_th';
+	src: url('../fonts/helveticaneueltstd_th.ttf');
+}
+
+@font-face {
+	font-family: 'helve_thit';
+	src: url('../fonts/helveticaneueltstd_thit.ttf');
+}
+
+@font-face {
+	font-family: 'helve_boldi';
+	src: url('../fonts/helve_boldi.otf');
+}

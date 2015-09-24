@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: 'tradegothicltstd';
+	src: url('../fonts/tradegothicltstd.otf');
+}
+
+@font-face {
+	font-family: 'tradegothicltstd_bd2';
+	src: url('../fonts/tradegothicltstd_bd2.otf');
+}
+
+@font-face {
+	font-family: 'tradegothicltstd_bd2obl';
+	src: url('../fonts/tradegothicltstd_bd2obl.otf');
+}
+
+@font-face {
+	font-family: 'tradegothicltstd_bdcn20';
+	src: url('../fonts/tradegothicltstd_bdcn20.otf');
+}
+
+@font-face {
+	font-family: 'tradegothicltstd_bdcn20obl';
+	src: url('../fonts/tradegothicltstd_bdcn20obl.otf');
+}
+
+@font-face {
+	font-family: 'tradegothicltstd_bodlext';
+	src: url('../fonts/tradegothicltstd_bodlext.otf');
+}
+
+@font-face {
+	font-family: 'tradegothicltstd_bold';
+	src: url('../fonts/tradegothicltstd_bold.otf');
+}
+
+@font-face {
+	font-family: 'tradegothicltstd_boldobl';
+	src: url('../fonts/tradegothicltstd_boldobl.otf');
+}
+
+@font-face {
+	font-family: 'tradegothicltstd_cn18';
+	src: url('../fonts/tradegothicltstd_cn18.otf');
+}
+
+@font-face {
+	font-family: 'tradegothicltstd_cn18obl';
+	src: url('../fonts/tradegothicltstd_cn18obl.otf');
+}
+
+@font-face {
+	font-family: 'tradegothicltstd_extened';
+	src: url('../fonts/tradegothicltstd_extened.otf');
+}
+
+@font-face {
+	font-family: 'tradegothicltstd_light';
+	src: url('../fonts/tradegothicltstd_light.otf');
+}
+
+@font-face {
+	font-family: 'tradegothicltstd_lightobl';
+	src: url('../fonts/tradegothicltstd_lightobl.otf');
+}
+
+@font-face {
+	font-family: 'tradegothicltstd_obl';
+	src: url('../fonts/tradegothicltstd_obl.otf');
+}

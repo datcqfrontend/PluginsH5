@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>Working with form field - HasFocus Binding</title>	
+			
+</head>
+<body>
+	<div id="viewModelHasFocus1">
+		<input data-bind="hasFocus: isSelected" />
+		<button data-bind="click: setIsSelected">Focus programmatically</button>
+		<span data-bind="visible: isSelected">The textbox has focus</span>
+		
+		<hr/>		
+		<p>
+			Name:
+			<b data-bind="visible: !editing(), text: _name(), click: editTrue">&nbsp;</b>
+			<input id="txtName" data-bind="visible: editing(), value: _name(), hasFocus: editing(), event: {mouseout: function(data,event){ editFalse(data,event);}}" />
+		</p>
+		<p><em>Click the name to edit it; click elsewhere to apply changes.</em></p>
+	</div>
+	<hr/>		
+	
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

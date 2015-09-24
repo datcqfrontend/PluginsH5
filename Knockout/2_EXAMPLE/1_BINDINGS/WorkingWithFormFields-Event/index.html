@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title>Working with form field - Click Binding</title>	
+			
+</head>
+<body>
+	<div id="viewModelEvent1">
+		<div data-bind="event: { mouseover: enableDetails, mouseout: disableDetails }">
+			Mouse over me
+		</div>
+		<div data-bind="visible: detailsEnabled">
+			Details
+		</div>
+	</div>
+	<hr/>	
+		
+	<div id="viewModelEvent2">	
+		<ul data-bind="foreach: places">
+			<li data-bind="text: $data, event: { mouseover: logMouseOver }"> </li>
+		</ul>
+		<p>You seem to be interested in: <span data-bind="text: lastInterest"> </span></p>
+	</div>
+	<hr/>
+	
+	<div id="viewModelEvent3">
+		<div data-bind="event: { mouseover: myFunction }">
+			Mouse over me
+		</div>
+		<div data-bind="text: dataEvent3"></div>
+	</div>
+	
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Play MP3</title>
+
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        
+		<script type="text/javascript" src="jquery-1.8.3.js"></script>
+		
+    </head>
+    <body>
+        
+		<div id="container">
+            <button id="play">
+                Play Music
+            </button>
+			<br/>
+			<button id="pause">
+                Pause Music
+            </button>
+        </div>
+        
+        <script type="text/javascript" >
+			$('document').ready(function () {
+				var audioElement = document.createElement('audio');
+				audioElement.setAttribute('src', 'bell-ringing.mp3');
+				audioElement.setAttribute('autoplay', 'autoplay');
+				audioElement.load();
+
+				//$.get();
+
+				audioElement.addEventListener("load", function() {
+					audioElement.play();
+				}, true);
+
+				$('#play').click(function() {
+					audioElement.play();
+				});
+
+				$('#pause').click(function() {
+					audioElement.pause();
+				});
+			});  
+		</script>        
+    </body>
+	
+</html>

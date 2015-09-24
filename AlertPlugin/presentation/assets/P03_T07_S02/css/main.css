@@ -1,0 +1,104 @@
+@charset "utf-8";
+.P03_T07_S02 .box_top, .P03_T07_S02 .right, .P03_T07_S02 .red, .P03_T07_S02 .black1, .P03_T07_S02 .sub_ul {
+	position: absolute;
+}
+.P03_T07_S02 .box_top {
+	background: url(../images/bg_box_top.png) no-repeat;
+	width: 335px;
+	height: 95px;
+	top: 51px;
+	right: 27px;
+	font-family: 'tradegothicltstd_bd2';
+	font-size: 14px;
+}
+.P03_T07_S02 .box_top span {
+}
+.P03_T07_S02 .red {
+	color: #ff0000;
+	padding-top: 10px;
+	left: 10px;
+}
+.P03_T07_S02 .black1 {
+	color: #000;
+	padding-top: 17px;
+	left: 10px;
+}
+.P03_T07_S02 .box_top span.right {
+	right: 20px;
+	top: 40px;
+	color: #666666;
+}
+.P03_T07_S02 #switchtransition {
+	height: 600px;
+	width: 1010px;
+	position: relative;
+	overflow: hidden;
+}
+.P03_T07_S02 .board, .P03_T07_S02 .board_2 {
+	background: url(../images/board.png) no-repeat;
+	width: 706px;
+	height: 449px;
+	position: absolute;
+}
+.P03_T07_S02 .board {
+	top: 164px;
+	left: 10px;
+	z-index: 2;
+	-webkit-transform-origin: left center;
+}
+.P03_T07_S02 .board_2 {
+	top: 164px;
+	left: 270px;
+	z-index: 1;
+	-webkit-transform: scale(0.7);
+	-webkit-transform-origin: right center;
+}
+.P03_T07_S02 .board .title, .P03_T07_S02 .board_2 .title {
+	width: 705px;
+	height: 56px;
+	text-align: center;
+	color: #fff;
+	font-size: 23px;
+	line-height: 23px;
+	padding-top: 12px;
+}
+.P03_T07_S02 .board_2 .title {
+	font-size: 18px;
+}
+.P03_T07_S02 .board ul, .P03_T07_S02 .board_2 ul {
+	margin: 10px 0 0 30px;
+	padding: 0px;
+	list-style: none;
+	width: 665px;
+}
+.P03_T07_S02 .board ul li {
+	background: url(../images/red_bullet.png) no-repeat 0px 0px;
+	padding-left: 40px;
+	clear: both;
+	font-size: 16px;
+	padding-bottom: 10px;
+	padding-top: 5px;
+}
+.P03_T07_S02 .board_2 ul li {
+	padding-left: 40px;
+	clear: both;
+	font-size: 16px;
+	padding-bottom: 15px;
+}
+.P03_T07_S02 .pad_L {
+	background: none !important;
+	padding-left: 0px !important;
+	font-size: 20px !important;
+}
+.P03_T07_S02 .sub_ul {
+	padding-left: 20px !important;
+	width: 640px !important;
+}
+.P03_T07_S02 .sub_ul li {
+	background: url(../images/bullet.png) no-repeat 20px 5px;
+	padding-left: 60px;
+	padding-top: 3px;
+}
+.P03_T07_S02 .claim_2line {
+	top: 600px !important;
+}

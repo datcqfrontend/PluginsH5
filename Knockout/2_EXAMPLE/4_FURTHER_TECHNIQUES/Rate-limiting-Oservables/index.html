@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>Rate Limiting</title>	
+			
+</head>
+<body>
+	<div id="viewModel1">
+		<p>Type stuff here: <input data-bind='value: instantaneousValue,
+			valueUpdate: ["input", "afterkeydown"]' /></p>
+		<p>Current delayed value: <b data-bind='text: delayedValue'> </b></p>
+		 
+		<div data-bind="visible: loggedValues().length > 0">
+			<h3>Stuff you have typed:</h3>
+			<ul data-bind="foreach: loggedValues">
+				<li data-bind="text: $data"></li>
+			</ul>
+		</div>
+	
+	</div>
+	<hr/>
+	
+		
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/require.js"></script>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

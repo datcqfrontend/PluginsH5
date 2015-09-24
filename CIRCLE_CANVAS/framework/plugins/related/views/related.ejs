@@ -1,0 +1,20 @@
+<ul>
+  <%
+    for(var i = (assets.length - 1); i >= 0 ; i--) { 
+  %>
+    <li class="asset<%= assets[i].id %> asset submenu"  <%= assets[i] %>>
+		<a>   
+			<span class="border"></span>
+		    <% if(drcom.config.navigation.menu.thumbPath!=null) { %>
+				
+				<img src="<%= drcom.config.navigation.menu.thumbPath.replace('%slide.name%', assets[i].thumb) %>" alt="<%=assets[i].name%>"/>
+			<%}%>
+			  <% if(drcom.config.navigation.menu.showTitle==true) {%>
+					<span class="text"><%==assets[i].title %></span>
+			  <%}%>
+		  </a>
+    </li>
+	<%
+    }
+   %>
+</ul>

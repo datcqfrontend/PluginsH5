@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>Rate Limiting</title>	
+			
+</head>
+<body>
+	<div id="viewModel1">
+		<h3>All tasks (<span data-bind="text: tasks().length"> </span>)</h3>
+		<ul data-bind="foreach: tasks">
+			<li>
+				<label>
+					<input type="checkbox" data-bind="checked: done" />
+					<span data-bind="text: title"> </span>
+				</label>
+			</li>
+		</ul>
+		 
+		<h3>Done tasks (<span data-bind="text: doneTasks().length"> </span>)</h3>
+		<ul data-bind="foreach: doneTasks">
+			<li data-bind="text: title"></li>
+		</ul>
+	</div>
+	<hr/>
+	
+		
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/require.js"></script>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

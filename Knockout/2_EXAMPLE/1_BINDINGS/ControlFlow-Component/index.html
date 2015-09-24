@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>Control flow - If Binding</title>	
+			
+</head>
+<body>
+	<div id="viewModelComponent1">
+		<h4>First instance, without parameters</h4>
+		<div data-bind='component: "message-editor"'></div>
+		 
+		<h4>Second instance, passing parameters</h4>
+		<div data-bind='component: {
+			name: "message-editor",
+			params: { initialText: "Hello, world!" }
+		}'></div>
+	</div>
+	<hr/>	
+		
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+[
+    {
+        "id": 1,
+        "name": "P03_T01_S01",
+        "guid": "ALEXION-GLOBAL-FRANCE-2012-121311",
+        "title": "Homepage"
+    },
+    {
+        "id": 2,
+        "name": "P03_T08_S01",
+        "guid": "ALEXION-GLOBAL-FRANCE-2012-121321",
+        "title": "Fazit"
+    },
+    {
+        "id": 3,
+        "name": "P03_T02_S01",
+        "guid": "ALEXION-GLOBAL-FRANCE-2012-121321",
+        "title": "Erkrankung "
+    },
+    {
+        "id": 4,
+        "name": "P03_T03_S01",
+        "guid": "ALEXION-GLOBAL-FRANCE-2012-121322",
+        "title": "<span class='line1'>Systemische</span><span class='line2'> Erkrankung</span>"
+    },
+    {
+        "id": 5,
+        "name": "P03_T03_S02",
+        "guid": "ALEXION-GLOBAL-FRANCE-2012-121331",
+        "title": "Komplement-<br>system"
+    },
+    {
+        "id": 6,
+        "name": "P03_T04_S01",
+        "guid": "ALEXION-GLOBAL-FRANCE-2012-121341",
+        "title": "Pathophysiologie "
+    },
+    {
+        "id": 7,
+        "name": "P03_T05_S01",
+        "guid": "ALEXION-GLOBAL-FRANCE-2012-121351",
+        "title": "Diagnose"
+    },
+    {
+        "id": 8,
+        "name": "P03_T05_S02",
+        "guid": "ALEXION-GLOBAL-FRANCE-2012-121361",
+        "title": "Diagnostik"
+    },
+    {
+        "id": 9,
+        "name": "P03_T05_S03",
+        "guid": "ALEXION-GLOBAL-FRANCE-2012-121362",
+        "title": "<span class='line1'>Genetischer</span><span class='line2'> Mutationsnachweis</span>"
+    },
+    {
+        "id": 10,
+        "name": "P03_T05_S04",
+        "guid": "ALEXION-GLOBAL-FRANCE-2012-121371",
+        "title": "Begleit-<br>erscheinungen"
+    },
+    {
+        "id": 11,
+        "name": "P03_T06_S01",
+        "guid": "ALEXION-GLOBAL-FRANCE-2012-121375",
+        "title": "<span class='line1'>Aktuelles</span><span class='line2'> Management</span>"
+    },
+    {
+        "id": 12,
+        "name": "P03_T06_S03",
+        "guid": "ALEXION-GLOBAL-FRANCE-2012-121381",
+        "title": "Nieren-<br>transplantation"
+    },
+    {
+        "id": 13,
+        "name": "P03_T07_S01",
+        "guid": "ALEXION-GLOBAL-FRANCE-2012-121391",
+        "title": "aHUS Folgen "
+    },
+    {
+        "id": 14,
+        "name": "P03_T08_S02",
+        "guid": "ALEXION-GLOBAL-FRANCE-2012-1213101",
+        "title": "aHUS-Register"
+    },
+    {
+        "id": 15,
+        "name": "P03_T08_S01",
+        "guid": "ALEXION-GLOBAL-FRANCE-2012-1213101",
+        "title": "Fazit"
+    },
+    {
+        "id": 16,
+        "name": "P03_T09_S01",
+        "guid": "ALEXION-GLOBAL-FRANCE-2012-1213101",
+        "title": "Bibliothek"
+    },
+    {
+        "id": 17,
+        "name": "P03_T06_S02",
+        "guid": "ALEXION-GLOBAL-FRANCE-2012-121381",
+        "title": "<span class='line1'>Extrarenaler</span><span class='line2'> Komplikationen</span>"
+    },
+    {
+        "id": 18,
+        "name": "Fachinformation",
+        "guid": "ALEXION-GLOBAL-FRANCE-2012-12119191",
+        "title": "Fachinformation"
+    }
+]

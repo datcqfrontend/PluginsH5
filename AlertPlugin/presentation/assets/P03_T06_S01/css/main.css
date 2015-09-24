@@ -1,0 +1,245 @@
+@CHARSET "UTF-8";
+.P03_T06_S01 .bg_methodology {
+	display: none;
+}
+.P03_T06_S01 .claim_2line {
+	left: 12px;
+	width: 1000px;
+	font-size: 24px;
+	top: 600px;
+}
+.P03_T06_S01 ul {
+	list-style: none;
+}
+.P03_T06_S01 .btn_plus {
+	top: 456px;
+	left: 916px;
+}
+.P03_T06_S01 .popup_content {
+	top: 10px;
+	left: 11px;
+	font-size: 21px;
+	font-family: 'tradegothicltstd_bd2';
+	position: absolute;
+	width: 850px;
+}
+.P03_T06_S01 .popup_content ul {
+	list-style-type: none;
+}
+.P03_T06_S01 .popup_content ul li {
+	background: url(../images/bullet.png) no-repeat 0px 0px;
+	margin-top: 12px;
+	padding: 2px 0px 0px 40px;
+}
+.P03_T06_S01 .popup_content ul li.child span {
+	display: inline-block;
+	color: #da0034;
+	margin-right: 15px;
+}
+.P03_T06_S01 .popup_content ul li.child {
+	background: none;
+	margin-top: 10px !important;
+}
+.P03_T06_S01 .popup_content ul li.small_li {
+	background: none;
+	font-size: 14px;
+	padding: 0px !important;
+	line-height: 14px;
+}
+/*screen ---*/
+.P03_T06_S01 .board {
+	background: url(../images/board.png) no-repeat;
+	width: 806px;
+	height: 550px;
+	position: absolute;
+	top: 76px;
+	left: 97px;
+}
+.P03_T06_S01 .bullet_a {
+	background: url(../images/bullet_a.png) no-repeat;
+	width: 35px;
+	height: 17px;
+	position: absolute;
+	left: 392px;
+	top: 400px;
+	z-index: 50;
+}
+.P03_T06_S01 .bullet_b {
+	background: url(../images/bullet_b.png) no-repeat;
+	width: 34px;
+	height: 17px;
+	position: absolute;
+	left: 151px;
+	top: 400px;
+	z-index: 50;
+}
+.P03_T06_S01 .number {
+	font-size: 16px;
+	position: absolute;
+	left: 217px;
+	top: 228px;
+}
+.P03_T06_S01 .number1 {
+	font-size: 16px;
+	position: absolute;
+	left: 217px;
+	top: 164px;
+}
+.P03_T06_S01 .number2 {
+	font-size: 16px;
+	position: absolute;
+	left: 217px;
+	top: 271px;
+}
+.P03_T06_S01 .number4 {
+	font-size: 16px;
+	position: absolute;
+	left: 217px;
+	top: 336px;
+}
+.P03_T06_S01 .number6 {
+	font-size: 16px;
+	position: absolute;
+	left: 226px;
+	top: 425px;
+}
+.P03_T06_S01 .txt_box {
+	font-size: 17px;
+	text-align: left;
+	position: absolute;
+	left: 14px;
+	top: 13px;
+	display: none;
+}
+.P03_T06_S01 .txt_bullet1 {
+	font-size: 15px;
+	position: absolute;
+	text-align: left;
+	left: 416px;
+	top: 401px;
+	z-index: 50;
+}
+.P03_T06_S01 .txt_bullet2 {
+	font-size: 15px;
+	position: absolute;
+	text-align: left;
+	left: 176px;
+	top: 401px;
+	z-index: 50;
+}
+.P03_T06_S01 .txt1, .P03_T06_S01 .txt2, .P03_T06_S01 .txt3, .P03_T06_S01 .txt4, .P03_T06_S01 .txt5, .P03_T06_S01 .txt6 {
+	font-size: 23px;
+	position: absolute;
+	top: -20px;
+	left: 27px;
+	display: none;
+	text-shadow: 0px 0px 4px #000;
+}
+.P03_T06_S01 .txt1 {
+	top: 208px;
+	left: 34px;
+}
+.P03_T06_S01 .txt2 {
+	top: 146px;
+	left: 16px;
+}
+.P03_T06_S01 .txt3 {
+	top: 206px;
+	left: 251px;
+}
+.P03_T06_S01 .txt4 {
+	top: 146px;
+	left: 104px;
+}
+.P03_T06_S01 .txt5 {
+	top: 34px;
+	left: 253px;
+}
+.P03_T06_S01 .txt6 {
+	top: 16px;
+	left: 341px;
+}
+.P03_T06_S01 .txt_left {
+	text-align: center;
+	font-size: 15px;
+	position: absolute;
+	-webkit-transform: rotate(-90deg);
+	top: 209px;
+	left: -81px;
+}
+.P03_T06_S01 .txt_chart1_2 {
+	font-size: 16px;
+	text-align: center;
+	position: absolute;
+	left: 251px;
+	top: 371px;
+	z-index: 30;
+}
+.P03_T06_S01 .txt_chart3_4 {
+	font-size: 16px;
+	text-align: center;
+	position: absolute;
+	left: 491px;
+	top: 371px;
+	z-index: 30;
+}
+.P03_T06_S01 .title_board {
+	font-size: 25px;
+	text-align: center;
+	position: absolute;
+	left: 5px;
+	top: 21px;
+	width: 800px;
+}
+.P03_T06_S01 .title_top {
+	font-size: 24px;
+	text-align: left;
+	position: absolute;
+	left: 15px;
+	top: 10px;
+	width: 309px;
+	height: 34px;
+}
+.P03_T06_S01 .title {
+	font-size: 14px;
+	text-align: left;
+	position: absolute;
+	left: 139px;
+	top: 503px;
+}
+.P03_T06_S01 .chart {
+	background: url(../images/chart.png) no-repeat;
+	width: 406px;
+	height: 209px;
+	position: absolute;
+	left: 210px;
+	top: 150px;
+	z-index: 12;
+	display: none;
+}
+.P03_T06_S01 .mark {
+	background: url(../images/mark.png) no-repeat;
+	width: 636px;
+	height: 80px;
+	position: absolute;
+	top: 336px;
+	left: 148px;
+	z-index: 13;
+}
+.P03_T06_S01 .drop {
+	background: url(../images/drop.png) no-repeat;
+	position: absolute;
+	top: 349px;
+	left: 206px;
+	width: 533px;
+	height: 73px;
+	z-index: 11;
+}
+.P03_T06_S01 .bot_board_text {
+	font-size: 12px;
+	color: black;
+	position: absolute;
+	top: 433px;
+	left: 7px;
+	width: 800px;
+}

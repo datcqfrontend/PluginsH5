@@ -1,0 +1,1 @@
+steal("./jquery.ui.tabs.js");

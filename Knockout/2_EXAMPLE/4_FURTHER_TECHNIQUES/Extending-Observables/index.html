@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>Custom Binding - Has Focus</title>	
+			
+</head>
+<body>
+	<div id="viewModel1"></div>
+	<hr/>
+	<div id="viewModel2">
+		<p><input data-bind="value: myNumberOne" /> (round to whole number)</p>
+		<p><input data-bind="value: myNumberTwo" /> (round to two decimals)</p>
+	</div>
+	<hr/>
+	<div id="viewModel3">
+		<p data-bind="css: { error: firstName.hasError }">
+			<input data-bind='value: firstName, valueUpdate: "afterkeydown"' />
+			<span data-bind='visible: firstName.hasError, text: firstName.validationMessage'> </span>
+		</p>
+		<p data-bind="css: { error: lastName.hasError }">
+			<input data-bind='value: lastName, valueUpdate: "afterkeydown"' />
+			<span data-bind='visible: lastName.hasError, text: lastName.validationMessage'> </span>
+		</p>
+	</div>
+	<hr/>
+		
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/require.js"></script>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

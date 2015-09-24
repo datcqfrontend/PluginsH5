@@ -1,0 +1,28 @@
+#pdf_toolbar
+{
+	position:absolute;
+	right:3px;
+	top:60px;	
+}
+#pdf_toolbar .button
+{
+	margin-bottom: 4px;
+	width:33px;
+}
+
+#pdf_top
+{
+	height:64px;	
+	background:url("../images/top.png") no-repeat;
+}
+#pdf_back
+{
+	height:72px;	
+	background:url("../images/back.png") no-repeat;
+}
+#pdf_next
+{
+	height:72px;
+	background:url("../images/next.png") no-repeat;
+	display: none;
+}

@@ -1,0 +1,52 @@
+.messagebox{
+	background:url(../images/messagebox.png), rgba(11,27,68,0.8);
+	background-size:100% auto, auto;
+	background-repeat:no-repeat;
+	border:2px solid #e9eaeb;
+	box-shadow:0px 4px 9px rgba(0,0,0,0.8),	0px 1px 2px rgba(0,0,0,1.0);
+	border-radius:12px;
+	box-sizing:content-box;
+	padding:5px;
+	text-align:center;
+	display:none;
+	position: absolute;
+
+}
+.messagebox .title{
+	padding-top:10px;
+	color:#fff;
+	text-shadow:0px -1px rgba(0,0,0,0.8);
+	padding-left:0;
+}
+.messagebox .msg{
+	padding-top:6px;
+	padding-bottom:8px;
+	color:#fff;	
+	text-shadow:0px -1px rgba(0,0,0,0.8);
+	text-align:center;
+}
+
+.messagebox .button{
+	border:1px solid rgba(19,30,58,0.9);
+	box-shadow:0px 1px 0px rgba(255,255,255,0.2);
+	text-shadow:0px -1px rgba(0,0,0,0.8);
+	color:#fff;
+	font-family: 'HelveticaNeue-Bold', 'HelveticaNeue', Helvetia, Arial;
+	font-size:18px;
+	width:132px;
+
+	height:42px;
+	display:block;
+	border-radius:8px;
+	box-sizing:border-box;
+	float:left;
+	margin:2px;
+	line-height:42px;
+	background-image: -webkit-linear-gradient(bottom, rgb(32,43,74) 26%, rgb(19,31,64) 50%, rgb(48,58,88) 50%, rgb(113,121,140) 91%);
+}
+.messagebox .button:active{
+	background-image: -webkit-linear-gradient(bottom, rgba(25,35,63,0.8) 0%, rgba(17,23,38,0.8) 50%, rgba(56,62,77,0.8) 50%, rgba(114,118,129,0.8) 91%);
+}
+.messagebox .button:last-child{
+background-image: -webkit-linear-gradient(bottom, rgb(93,103,127) 0%, rgb(77,87,114) 50%, rgb(104,113,137) 50%, rgb(174,178,190) 91%);
+}

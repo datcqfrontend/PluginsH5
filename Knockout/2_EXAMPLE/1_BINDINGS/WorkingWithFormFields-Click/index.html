@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Working with form field - Click Binding</title>	
+			
+</head>
+<body>
+	<div id="viewModelClick1">
+		You've clicked <span data-bind="text: numberOfClicks"></span> times	<button data-bind="click: incrementClickCounter">Click me</button>
+	</div>
+	<hr/>	
+		
+	<div id="viewModelClick2">	
+		<ul data-bind="foreach: places">
+			<li>
+				<span data-bind="text: $data"></span>
+				<button data-bind="click: removePlace">Remove</button>
+			</li>
+		</ul>
+		<hr/>
+		
+		<button data-bind="click: myFunction">
+			Click me
+		</button>
+		<span data-bind="text: clickData"></span>
+		<hr/>
+		
+		<div data-bind="click: myDivHandler">
+			<button data-bind="click: myButtonHandler, clickBubble: true">
+				Click me to check bubble
+			</button>
+		</div>
+		<span data-bind="text: clickBubbleData"></span>
+	</div>
+	
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

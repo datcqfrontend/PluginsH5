@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title>Hello world</title>	
+			
+</head>
+<body>
+	<div id="formOne">
+		<p>First name: <input data-bind="value: firstName" /></p>
+		<p>Last name: <input data-bind="value: lastName" /></p>
+		<h2>Hello, <input data-bind="textInput: fullName" />!</h2>	
+		<hr>
+	
+		<div>Enter bid price: <input data-bind="textInput: formattedPrice"/></div>
+		<div>(Raw value: <span data-bind="text: price"></span>)</div>	
+	</div>
+	<hr>
+	
+	<div id="formFilter">
+		<div>Enter a numeric value: <input data-bind="textInput: attemptedValue"/></div>
+		<div>(Old value: <span data-bind="text: oldValue"></span>)</div>
+		<div class="error" data-bind="visible: !lastInputWasValid()">That's not a number!</div>
+		<div>(Accepted value: <span data-bind="text: acceptedNumericValue"></span>)</div>
+	</div>
+	
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

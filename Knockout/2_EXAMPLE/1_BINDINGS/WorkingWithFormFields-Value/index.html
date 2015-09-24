@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title>Working with form field - Value Binding</title>	
+			
+</head>
+<body>
+	<div id="viewModelValue1">
+		<p>Login name: <input data-bind="value: userName" /></p>
+		<p>Password: <input type="password" data-bind="value: userPassword" /></p>
+		
+		<p>
+			Select a country:
+			<select data-bind="options: countries,
+							   optionsCaption: 'Choose one...',
+							   value: selectedCountry,
+							   valueAllowUnset: false"></select>
+		</p>
+		
+		<!-- Two-way binding. Populates textbox; syncs both ways. -->
+		<p>First value: <input data-bind="value: firstValue" /></p>
+		 
+		<!-- One-way binding. Populates textbox; syncs only from textbox to model. -->
+		<p>Second value: <input data-bind="value: secondValue" /></p>
+		 
+		<!-- No binding. Populates textbox, but doesn't react to any changes. -->
+		<!--p>Third value: <input data-bind="value: thirdValue" /></p-->
+		<p>Third value: <input data-bind="value: secondValue().length>8" /></p>
+		
+		
+	</div>
+	<hr/>		
+	
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title>Custom Binding - Slide Visible</title>	
+			
+</head>
+<body>
+	<div id="viewModel1">
+		<div data-bind="slideVisible: giftWrap, slideDuration:200">You have selected the option</div>
+		<label><input type="checkbox" data-bind="checked: giftWrap" /> Gift wrap</label>
+
+	</div>
+	<hr/>
+	
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

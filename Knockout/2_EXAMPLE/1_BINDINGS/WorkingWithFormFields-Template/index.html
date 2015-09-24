@@ -1,0 +1,67 @@
+<html>
+<head>
+	<title>Working with form field - Value Binding</title>	
+			
+</head>
+<body>
+	<div id="viewModelValue1">
+		<h2>Participants</h2>
+		Here are the participants:
+		<div data-bind="template: { name: 'person-template', data: buyer }"></div>
+		<div data-bind="template: { name: 'person-template', data: seller }"></div>
+		 <hr/>
+		<h2>Participants foreach</h2>
+		Here are the participants:
+		<div data-bind="template: { name: 'person-template', foreach: people }"></div>
+		 
+		<script type="text/html" id="person-template">
+			<h3 data-bind="text: name"></h3>
+			<p>Credits: <span data-bind="text: credits"></span></p>
+		</script>
+				
+		<hr/>
+		<h2>Participants foreach 2</h2>
+		Here are the participants:
+		<div data-bind="template: { name: 'person-template2'}"></div>
+
+		<script type="text/html" id="person-template2">
+			<div data-bind="foreach: people">
+				<h3 data-bind="text: name"></h3>
+				<p>Credits: <span data-bind="text: credits"></span></p>
+			</div>
+		</script>
+		
+		<hr/>
+		<ul data-bind="template: { name: 'seasonTemplate', foreach: seasons, as: 'season' }"></ul>
+		 
+		<script type="text/html" id="seasonTemplate">
+			<li>
+				<strong data-bind="text: name"></strong>
+				<ul data-bind="template: { name: 'monthTemplate', foreach: months, as: 'month' }"></ul>
+			</li>
+		</script>
+		<script type="text/html" id="monthTemplate">
+			<li>
+				<span data-bind="text: month"></span>
+				is in
+				<span data-bind="text: season.name"></span>
+			</li>
+		</script>
+		
+		<hr/>
+		<ul data-bind='template: { name: displayMode, foreach: employees }'> </ul>
+		<script type="text/html" id="active">
+			<p>Active: <span data-bind="text: name"></span></p>			 
+		</script>
+		<script type="text/html" id="inactive">
+			<p>Inactive: <span data-bind="text: name"></span></p>			 
+		</script>		
+		<hr/>
+	</div>
+	<hr/>		
+	
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

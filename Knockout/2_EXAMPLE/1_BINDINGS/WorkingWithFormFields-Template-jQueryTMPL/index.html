@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>Working with form field - Value Binding</title>	
+			
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/underscore-min.js"></script>		
+	<script type="text/javascript" src="js/knockout-latest.js"></script>
+</head>
+<body>
+	<div id="viewModelValue1">
+		<h1>People</h1>
+		
+		
+		<div data-bind="template: 'peopleList2'"></div>		
+		<script type="text/html" id="peopleList2">
+			<% _.each(people(), function(person) { %>
+				<li>
+					<b> <%=person.name%></b> is <%= person.age %> years old
+				</li>
+			<% }) %>
+		</script>
+		<hr/>
+	</div>
+	
+	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>Control flow - If Binding</title>	
+			
+</head>
+<body>
+	<div id="viewModelIf1">
+		<label><input type="checkbox" data-bind="checked: displayMessage" /> Display message</label>
+		<div data-bind="if: displayMessage">Here is a message. Astonishing.</div>
+	</div>
+	<hr/>
+
+	<div id="viewModelIf2">
+		<ul data-bind="foreach: planets">
+			<li>
+				Planet: <b data-bind="text: name"> </b>
+				<div data-bind="if: capital">
+					Capital: <b data-bind="text: capital.cityName"> </b>
+				</div>
+			</li>
+		</ul>
+		
+		<ul>
+			<li>This item always appears</li>
+			<!-- ko if: someExpressionGoesHere -->
+				<li>I want to make this item present/absent dynamically</li>
+			<!-- /ko -->
+			<!-- ko ifnot: someExpressionGoesHere -->
+				<li>If will show if someExpressionGoesHere is false</li>
+			<!-- /ko -->	
+			<!-- ko if: !someExpressionGoesHere() -->
+				<li>If will show if someExpressionGoesHere is false with negative function</li>
+			<!-- /ko -->	
+		</ul>
+	</div>
+	<hr/>
+	
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

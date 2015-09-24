@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>Custom Binding - Has Focus</title>	
+			
+</head>
+<body>
+	<div id="viewModel1">
+		<ul data-bind="foreach: products">
+			<li class="product">
+				<strong data-bind="text: name"></strong>
+				<like-widget params="value: userRating"></like-widget>
+			</li>
+		</ul>
+		
+		<hr/>
+		
+		<ul data-bind="foreach: products2">
+			<li class="product">
+				<strong data-bind="text: name"></strong>
+				<like-widget params="value: userRating"></like-widget>
+			</li>
+		</ul>
+		<button data-bind="click: addProduct">Add a product</button>
+	</div>
+	<hr/>
+		
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/require.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Virtual Keyboard Basic Demo</title>
+
+	<!-- demo -->
+	<link href="css/demo.css" rel="stylesheet">
+
+	<!-- jQuery & jQuery UI + theme (required) -->
+	<link href="css/jquery-ui.min.css" rel="stylesheet">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+
+	<!-- keyboard widget css & script (required) -->
+	<link href="../css/keyboard.css" rel="stylesheet">
+	<script src="../js/jquery.keyboard.js"></script>
+
+	<!-- keyboard layout -->
+	<script src="../layouts/keyboard-layouts-combined.js" charset="utf-8"></script>
+	
+	<!-- keyboard extensions (optional) -->
+	<!--script src="../js/jquery.mousewheel.js"></script-->
+	
+
+	<!-- initialize keyboard (required) -->
+	<script>
+		$(function(){
+			var kb = $('.text').keyboard({
+				layout: 'french-azerty-1',
+				stayOpen: false
+			});			
+			
+			//kb[0].options.layout = "French (azerty-1), french, french-azerty-1";
+			// true flag causes a keyboard refresh
+			//kb[0].reveal(true);
+		});
+	</script>
+
+</head>
+
+<body>
+	<!-- keyboard input -->
+	<input id="txt1" class="text" type="text">
+	<br/>
+	<input id="txt2" class="text" type="text">
+
+	
+
+</body>
+</html>

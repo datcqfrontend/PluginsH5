@@ -1,0 +1,18 @@
+
+.P03_T06_S02 .board {
+    background: url(../images/board.png) no-repeat;
+    width: 804px;
+    height: 502px;
+    top: 86px;
+    left: 104px;
+	position:absolute;
+	font-size:20px;
+}
+
+
+.P03_T06_S02 .claim_2line{ font-size:24px; top:600px;}
+
+.P03_T06_S02 .text1{ color:#000; position:absolute; top:94px; left:47px;}
+
+.P03_T06_S02 .board ul{ list-style:none; margin:0; padding:0; position:absolute; left:70px; top:160px;}
+.P03_T06_S02 .board ul li { padding-left:40px; background:url(../images/red_bullet.png) no-repeat 0px 11px; clear:both; padding-top:15px;}

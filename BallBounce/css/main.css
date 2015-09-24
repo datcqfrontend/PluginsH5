@@ -1,0 +1,27 @@
+.container_ball {
+	width:160px;
+	height:460px;
+	position:absolute;
+	
+	opacity:0.5;
+	background-color:red;
+}
+
+.container_ball1 {	top: 100px;	left:100px;}
+.container_ball2 {	top: 40px;	left:300px;}
+.container_ball3 {	top: 220px;	left:500px;}
+.container_ball4 {	top: 40px;	left:700px;}
+.container_ball5 {	top: 100px;	left:900px;}
+
+.ball{ 
+	width: 160px;
+	height:160px;
+	position: absolute;
+	background-color: black;
+}
+
+.ball1{ bottom:300px;}
+.ball2{ bottom:300px;}
+.ball3{ bottom:300px;}
+.ball4{ bottom:300px;}
+.ball5{ bottom:300px;}

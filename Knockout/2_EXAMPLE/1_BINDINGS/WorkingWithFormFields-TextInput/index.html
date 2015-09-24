@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>Working with form field - TextInput Binding</title>	
+			
+</head>
+<body>
+	<div id="viewModelTextInput1">
+		<p>Login name: <input data-bind="textInput: userName" /></p>
+		<p>Password: <input type="password" data-bind="textInput: userPassword" /></p>
+		 
+		ViewModel:
+		<pre data-bind="text: userName() + userPassword()"></pre>
+		
+	</div>
+	<hr/>		
+	
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

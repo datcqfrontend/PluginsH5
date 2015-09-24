@@ -1,0 +1,69 @@
+<html>
+<head>
+	<title>Control flow - Foreach Binding</title>	
+			
+</head>
+<body>
+	<table id="viewModalForeach">
+		<thead>
+			<tr><th>First name</th><th>Last name</th></tr>
+		</thead>
+		<tbody data-bind="foreach: people">
+			<tr>
+				<td data-bind="text: $data.firstName"></td>
+				<td data-bind="text: $data.lastName"></td>
+			</tr>
+		</tbody>
+	</table>
+	<hr/>
+	
+	<div id="viewModalForeach2">
+		<h4>People</h4>
+		<!-- //afterRender/afterAdd/beforeRemove/beforeMove/afterMove -->
+		<ul data-bind="foreach: {data: people, afterAdd: yellowFadeIn}">
+			<li>
+				Name at position <span data-bind="text: $index"> </span>: <span data-bind="text: name"> </span>
+				<a href="#" data-bind="click: removePerson">Remove</a>
+			</li>
+		</ul>
+		<button data-bind="click: addPerson">Add</button>
+	</div>
+	<hr/>
+	
+	<div id="viewModalForeach3">
+		<ul data-bind="foreach: months">
+			<li>
+				The current item is: <b data-bind="text: $data"></b>
+			</li>
+		</ul>
+	</div>
+	<hr/>
+	
+	<div id="viewModalForeach4">
+		<ul data-bind="foreach: { data: categories, as: 'category' }">
+			<li>
+				<ul data-bind="foreach: { data: items, as: 'item' }">
+					<li>
+						<span data-bind="text: category.name"></span>:
+						<span data-bind="text: item"></span>
+					</li>
+				</ul>
+			</li>			
+		</ul>
+	</div>
+	<hr/>
+	
+	<div id="viewModalForeach5">
+		<ul>
+			<li class="header">Header item</li>
+			<!-- ko foreach: myItems -->
+				<li>Item <span data-bind="text: $data"></span></li>
+			<!-- /ko -->
+		</ul>
+	</div>
+		
+	<script type="text/javascript" src="js/knockout-latest.js"></script>	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+.PSORIASIS_S003 .pie, .PSORIASIS_S003 .clock, .PSORIASIS_S003 .circle {
+    height: 331px;
+    left: 125px;
+    top: 150px;
+    width: 331px;
+}
+
+.PSORIASIS_S003 .pie {
+    background: url(../images/round.png) no-repeat center center;
+    -webkit-background-size: 320px 320px;
+    z-index: 1;
+}
+
+.PSORIASIS_S003 .mask_left, .PSORIASIS_S003 .mask_right {
+    background: url(../images/mask_left.png) no-repeat 0 0;
+    height: 332px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 168px;
+    z-index: 5;
+}
+
+.PSORIASIS_S003 div.mask_right {
+    background-image: url(../images/);
+    left: auto;
+    right: 0;
+}
+
+.PSORIASIS_S003 .circle {
+    background: url(../images/circle.png) no-repeat center center;
+    -webkit-background-size: 238px 238px;
+    z-index: 6;
+}
+
+.PSORIASIS_S003 .percent {
+    color: #106AA9;
+    display: block;
+    font-size: 92px;
+    height: 100%;
+    line-height: 331px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.PSORIASIS_S003 .clock, .PSORIASIS_S003 .clock .rotate {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.PSORIASIS_S003 .rotate.right {
+    display: none;
+    z-index: 11;
+}
+
+.PSORIASIS_S003 .clock .bg, .PSORIASIS_S003 .clock .front {
+    -webkit-background-size: 331px 331px;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+    .PSORIASIS_S003 .clock .bg.left {
+        left: 0;
+    }
+
+    .PSORIASIS_S003 .clock .bg.right {
+        left: 50%;
+        background: url("../images/round_active.png") no-repeat right top;
+    }
+
+    .PSORIASIS_S003 .clock .bg.left {
+        background: url("../images/round_active.png") no-repeat 0 0;
+    }
+
+.PSORIASIS_S003 .clock, .PSORIASIS_S003 .front.left {
+    /*background: url(../images/circle_gray.png) no-repeat 0 0;*/
+}
+
+    .PSORIASIS_S003 .clock .front.left {
+        left: 0;
+        z-index: 10;
+    }
