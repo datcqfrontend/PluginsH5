@@ -157,6 +157,7 @@ $(document).ready(function(){
 
 			points=geom.contour(defineTransparent);
 
+			ctx.save();
 			ctx.beginPath();
 		    ctx.moveTo(points[0][0],points[0][4]);
 		    for(var i=1;i<points.length;i++){
@@ -167,7 +168,10 @@ $(document).ready(function(){
 
 		    ctx.fillStyle = '#fff';
 	      	ctx.fill();
+	      	//ctx.lineWidth = 10;
+	      	//ctx.stokeStyle = '#fff';
 		    //ctx.stroke();
+		    ctx.clip();
 
 			var arrX = [], arrY = [];
 	  		for(var j=0;j<points.length;j++){
@@ -180,10 +184,12 @@ $(document).ready(function(){
 	  		var minY = Math.min.apply(Math,arrY);
 	  		var maxY = Math.max.apply(Math,arrY);
 
-	  		areas.push({x:minX,y:minY,width:maxX-minX,height:maxY-minY})	  		
-
+	  		areas.push({x:minX,y:minY,width:maxX-minX,height:maxY-minY});	  		
+	  		
 	  		areas[countArea].url = urlAvatars[countArea];
 	  		drawImage(areas[countArea],function(){
+	  			ctx.restore();
+
 	  			countArea++;
 	  			getAreaTransparent();
 	  		});
@@ -195,7 +201,7 @@ $(document).ready(function(){
 	  		console.log("End get area");
 	  		console.log(areas);
 
-	  		ctx.drawImage(imgOrigin,canvas.width/2-imgOrigin.width/2,canvas.height/2-imgOrigin.height/2);
+	  		//ctx.drawImage(imgOrigin,canvas.width/2-imgOrigin.width/2,canvas.height/2-imgOrigin.height/2);
 	  	}
 	}	
 
@@ -203,10 +209,10 @@ $(document).ready(function(){
 	// user determines if original-image or outline path or both are visible
 	function drawImage(options, callback){
 		var imgObj = new Image(),
-    		x = options.x || this.config.x,
-    		y = options.y || this.config.y,
-    		w = options.width || this.config.width,
-    		h = options.height || this.config.height,
+    		x = options.x || 0,
+    		y = options.y || 0,
+    		w = options.width || canvas.width,
+    		h = options.height || canvas.height,
     		delay = options.delay || 0;
 
 	    	//this.drawingImage = true;
