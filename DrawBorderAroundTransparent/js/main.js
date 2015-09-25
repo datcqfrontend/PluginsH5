@@ -96,28 +96,20 @@
 })();
 
 $(document).ready(function(){
-	window.areaPoints = [];
-
 	var canvas = $('#canvas')[0];
 
+	var urlAvatars = [
+		'images/1.jpg','images/2.jpg','images/3.jpg','images/4.jpg','images/5.jpg'
+	];
 	var cw = canvas.width,
 	    ch = canvas.height,
 	    ctx = canvas.getContext('2d');
 
-	// checkbox to show/hide the original image
-	var $showImage=$("#showImage");
-	$showImage.prop('checked', true);
-
-	// checkbox to show/hide the path outline
-	var $showOutline=$("#showOutline");
-	$showOutline.prop('checked', true);
-
 	// an array of points that defines the outline path
-	var points;
-
 	// pixel data of this image for the defineNonTransparent 
 	// function to use
-	var imgData,data;
+
+	var areas=[],points,imgData,data,countArea=0;
 
 	// This is used by the marching ants algorithm
 	// to determine the outline of the non-transparent
@@ -132,39 +124,7 @@ $(document).ready(function(){
 	  return(a==0);
 	}
 
-	// load the image
-	var img=new Image();
-	img.crossOrigin="anonymous";
-	img.onload=function(){
-
-	  // draw the image
-	  // (this time to grab the image's pixel data
-	  ctx.drawImage(img,canvas.width/2-img.width/2,canvas.height/2-img.height/2);
-
-	  // grab the image's pixel data
-	  imgData=ctx.getImageData(0,0,canvas.width,canvas.height);
-	  data=imgData.data;
-
-	  // call the marching ants algorithm
-	  // to get the outline path of the image
-	  // (outline=outside path of transparent pixels
-	  //points=geom.contour(defineNonTransparent);
-
-	  points=geom.contour(defineTransparent);
-
-	  ctx.strokeStyle="red";
-	  ctx.lineWidth=2;
-
-	  $showImage.change(function(){ redraw(); });
-
-	  $showOutline.change(function(){ redraw(); });
-
-	  redraw();
-
-	}
-	img.src="images/temp_5.png";
-
-	function checkTransparent(data){
+	var checkTransparent=function(data){
 		for(var i = 0, n = data.length; i < n; i += 4) {
             var alpha = data[i + 3];
             if(alpha==0){
@@ -174,28 +134,30 @@ $(document).ready(function(){
         return false;
 	}
 
-	// redraw the canvas
-	// user determines if original-image or outline path or both are visible
-	function redraw(){
+	// load the image
+	var imgOrigin=new Image();
+	imgOrigin.crossOrigin="anonymous";
+	imgOrigin.onload=function(){
 
-	  // clear the canvas
-	  ctx.clearRect(0,0,canvas.width,canvas.height);
-
-	  // draw the image
-	  if($showImage.is(':checked')){
-	    ctx.drawImage(img,canvas.width/2-img.width/2,canvas.height/2-img.height/2);
-	  }
-
-	  redraw2();
+	  	// draw the image
+	  	// (this time to grab the image's pixel data
+	  	ctx.drawImage(imgOrigin,canvas.width/2-imgOrigin.width/2,canvas.height/2-imgOrigin.height/2);
+		
+	   	getAreaTransparent();
 	}
+	imgOrigin.src="images/temp_5.png";
 
-	function redraw2(){
-		console.log("Redraw 2");		  	
+	function getAreaTransparent(){
+		console.log("Check transparent");
 
-		// draw the path (consisting of connected points)
-	  	if($showOutline.is(':checked')){
-	    // draw outline path
-		    ctx.beginPath();
+		imgData=ctx.getImageData(0,0,canvas.width,canvas.height);
+		data=imgData.data;
+
+		if(checkTransparent(data)){
+
+			points=geom.contour(defineTransparent);
+
+			ctx.beginPath();
 		    ctx.moveTo(points[0][0],points[0][4]);
 		    for(var i=1;i<points.length;i++){
 		      var point=points[i];
@@ -203,96 +165,60 @@ $(document).ready(function(){
 		    }
 		    ctx.closePath();
 
-		    ctx.fillStyle = '#8ED6FF';
+		    ctx.fillStyle = '#fff';
 	      	ctx.fill();
-		    ctx.stroke();
+		    //ctx.stroke();
+
+			var arrX = [], arrY = [];
+	  		for(var j=0;j<points.length;j++){
+	  			arrX.push(points[j][0]);
+	  			arrY.push(points[j][1]);
+	  		}
+
+	  		var minX = Math.min.apply(Math,arrX);
+	  		var maxX = Math.max.apply(Math,arrX);
+	  		var minY = Math.min.apply(Math,arrY);
+	  		var maxY = Math.max.apply(Math,arrY);
+
+	  		areas.push({x:minX,y:minY,width:maxX-minX,height:maxY-minY})	  		
+
+	  		areas[countArea].url = urlAvatars[countArea];
+	  		drawImage(areas[countArea],function(){
+	  			countArea++;
+	  			getAreaTransparent();
+	  		});
+
+	  		
+	  		//ctx.strokeStyle = '#f00';
+	    	//ctx.strokeRect(minX+0.5, minY+0.5, maxX-minX, maxY-minY);	  		
+	  	}else{
+	  		console.log("End get area");
+	  		console.log(areas);
+
+	  		ctx.drawImage(imgOrigin,canvas.width/2-imgOrigin.width/2,canvas.height/2-imgOrigin.height/2);
 	  	}
+	}	
 
-	  	//setTimeout(function(){		  	
-		  	imgData=ctx.getImageData(0,0,canvas.width,canvas.height);
-		  	data=imgData.data;
+	// redraw the canvas
+	// user determines if original-image or outline path or both are visible
+	function drawImage(options, callback){
+		var imgObj = new Image(),
+    		x = options.x || this.config.x,
+    		y = options.y || this.config.y,
+    		w = options.width || this.config.width,
+    		h = options.height || this.config.height,
+    		delay = options.delay || 0;
 
-		  	//console.log(data[0]);
-
-		  	if(checkTransparent(data)){
-		  		points=geom.contour(defineTransparent);	
-
-		  		var arrX = [], arrY = [];
-		  		for(var j=0;j<points.length;j++){
-		  			arrX.push(points[j][0]);
-		  			arrY.push(points[j][1]);
-		  		}
-
-		  		var minX = Math.min.apply(Math,arrX);
-		  		var maxX = Math.max.apply(Math,arrX);
-
-		  		var minY = Math.min.apply(Math,arrY);
-		  		var maxY = Math.max.apply(Math,arrY);
-
-		  		console.log(minX,maxX,minY,maxY);
-
-		  		areaPoints.push(points);
-
-		  		redraw2();
-		  	}		  	
-		//},50);
+	    	//this.drawingImage = true;
+	    	imgObj.onload = function() {
+	    		setTimeout(function(){
+	    			ctx.drawImage(imgObj, x, y, w, h);
+	    			if (callback && typeof(callback) === "function") {
+					    callback();
+					}
+	    		},delay);		        		        
+		    };
+	    	imgObj.src = options.url;	
 	}
-
-
-	/*img.crossOrigin ='';
-	img.onload = getBounds;
-	img.src = 'images/temp_4.png';
-
-	function getBounds() {
-
-	    ctx.drawImage(this, 0, 0, w, h);
-
-	    var idata = ctx.getImageData(0, 0, w, h),
-	        buffer = idata.data,
-	        buffer32 = new Uint32Array(buffer.buffer),
-	        x, y,
-	        x1 = w, y1 = h, x2 = 0, y2 = 0;
-	    
-	    // get left edge
-	    for(y = 0; y < h; y++) {
-	        for(x = 0; x < w; x++) {
-	            if (buffer32[x + y * w] == 0) {
-	                if (x < x1) x1 = x;
-	            }
-	        }
-	    }
-
-	    console.log(x1);
-
-	    // get right edge
-	    for(y = 0; y < h; y++) {
-	        for(x = w; x >= 0; x--) {
-	            if (buffer32[x + y * w] == 0) {
-	                if (x > x2) x2 = x;
-	            }
-	        }
-	    }
-	    
-	    // get top edge
-	    for(x = 0; x < w; x++) {
-	        for(y = 0; y < h; y++) {
-	            if (buffer32[x + y * w] == 0) {
-	                if (y < y1) y1 = y;
-	            }
-	        }
-	    }
-
-	    // get bottom edge
-	    for(x = 0; x < w; x++) {
-	        for(y = h; y >= 0; y--) {
-	            if (buffer32[x + y * w] == 0) {
-	                if (y > y2) y2 = y;
-	            }
-	        }
-	    }
-
-	    ctx.strokeStyle = '#f00';
-	    ctx.strokeRect(x1+0.5, y1+0.5, x2-x1, y2-y1);
-	    
-	}*/
+	
 });
