@@ -1,3 +1,8 @@
+/* 	Plugin GenerateImage
+	Edited by: Dat Chau
+	Version: 1.0.0.1
+*/
+
 // Marching Squares Edge Detection: this is a "marching ants" algorithm used to calc the outline path
 (function() {
    	geom = {}; 
@@ -46,8 +51,7 @@
 	  //console.log(s[0],s[1]);
 	} while (s[0] != x || s[1] != y); 
 
-	console.log("break");
-
+	//console.log("break");
 	//console.log(c.length);
 	return c; 
 	}; 
@@ -118,10 +122,40 @@
 	        return false;
 		},
 
+		measureText:function(text,style,font,size){
+			var str = text + ':' + style + ':' + font + ':' + size;
+		    if (typeof(__measuretext_cache__) == 'object' && __measuretext_cache__[str]) {
+		        return __measuretext_cache__[str];
+		    }
+
+		    var div = document.createElement('DIV');
+		        div.innerHTML = text;
+		        div.style.position = 'absolute';
+		        div.style.top = '-100px';
+		        div.style.left = '-100px';
+		        div.style.fontFamily = font;
+		        div.style.fontWeight = style ? style : 'normal';
+		        div.style.fontSize = size;
+		    document.body.appendChild(div);
+		    
+		    var size = [div.offsetWidth, div.offsetHeight];
+
+		    document.body.removeChild(div);
+		    
+		    // Add the sizes to the cache as adding DOM elements is costly and can cause slow downs
+		    if (typeof(__measuretext_cache__) != 'object') {
+		        __measuretext_cache__ = [];
+		    }
+		    __measuretext_cache__[str] = size;
+		    
+		    return size;
+		},
+
 	    drawAvatarToBackground:function(options, callback){
 	    	var _this = this,
 	    		url = options.url,
 	    		avatars = options.avatars,
+	    		usernames = options.usernames,
 	    		x = options.x || this.config.x,
 	    		y = options.y || this.config.y,
 	    		w = options.w || this.config.width,
@@ -135,11 +169,15 @@
 			  return(a==0);
 			}
 
-			console.log(url);
+			//console.log(url);
 
 			var imgOrigin=new Image();
 			imgOrigin.crossOrigin="anonymous";
 			imgOrigin.onload=function(){
+				//console.log(this.width, this.height);
+				h = Math.round(this.height*w/this.width);
+				_this.$canvas.attr('height',h);
+
 				_this.context.drawImage(imgOrigin,x,y,w,h);
 				
 			   	getAreaTransparent();
@@ -147,12 +185,12 @@
 			imgOrigin.src=url;
 
 			function getAreaTransparent(){
-				console.log("Check transparent");
+				
 				imgData=_this.context.getImageData(x,y,w,h);
 				data=imgData.data;
 
 				if(_this.checkTransparent(data)){
-
+					console.log("Check transparent: "+countArea);
 					points=geom.contour(defineTransparent);
 
 					_this.context.save();
@@ -166,9 +204,11 @@
 
 				    _this.context.fillStyle = '#fff';
 			      	_this.context.fill();
-			      	//ctx.lineWidth = 10;
-			      	//ctx.stokeStyle = '#fff';
-				    //ctx.stroke();
+
+			      	_this.context.lineWidth = 5;
+			      	_this.context.strokeStyle = '#fff';
+				    _this.context.stroke();
+
 				    _this.context.clip();
 
 					var arrX = [], arrY = [];
@@ -182,24 +222,42 @@
 			  		var minY = Math.min.apply(Math,arrY);
 			  		var maxY = Math.max.apply(Math,arrY);
 
-			  		areas.push({x:minX,y:minY,w:maxX-minX,h:maxY-minY});	  		
+			  		areas.push({x:minX,y:minY,w:maxX-minX,h:maxY-minY});	
+
+			  		//console.log(minX, maxX, minY, maxY);  		
 			  		
+			  		usernames[countArea].x = minX + (maxX-minX)/2;
+			  		usernames[countArea].y = maxY;
+
+			  		usernames[countArea].wrapRectW = maxX-minX;
+			  		//usernames[countArea].wrapRectH = maxY-minY;
+			  		//_this.drawText(usernames[countArea]);
+
 			  		areas[countArea].url = avatars[countArea];
+			  		
 			  		_this.drawImage(areas[countArea],function(){
+			  			//console.log(countArea, avatars.length);
+			  			//console.log('Restore');
 			  			_this.context.restore();
 
 			  			countArea++;
 			  			getAreaTransparent();
 			  		});
-
-			  		
-			  		//ctx.strokeStyle = '#f00';
-			    	//ctx.strokeRect(minX+0.5, minY+0.5, maxX-minX, maxY-minY);	  		
 			  	}else{
-			  		console.log("End get area");
-			  		console.log(areas);
 
-			  		//ctx.drawImage(imgOrigin,canvas.width/2-imgOrigin.width/2,canvas.height/2-imgOrigin.height/2);
+			  		setTimeout(function(){
+			  			for(var i=0;i<countArea;i++){
+			  				
+			  				if(usernames[i].texts){
+			  					_this.drawTexts(usernames[i]);
+			  				}else{
+			  					_this.drawText(usernames[i]);	
+			  				}				  			
+				  		}
+
+				  		//console.log("End get area");
+				  		//console.log(areas);	
+			  		},100);
 			  	}
 			}	
 
@@ -234,30 +292,193 @@
 	    	return this;
 	    },
 
+	    drawTexts:function(options,callback){
+	    	//console.log('Draw texts');
+
+	    	var _this = this,
+	    		obj = {};
+
+    		obj.texts = options.texts;
+    		obj.x = options.x;
+    		obj.y = options.y;
+
+    		obj.textAlign = options.textAlign || 'center';
+    		obj.textBaseline = options.textBaseline || '',
+
+    		obj.wrapRect = options.wrapRect || '';
+    		obj.wrapRectPaddingX = options.wrapRectPaddingX || 10;
+    		obj.wrapRectPaddingY = options.wrapRectPaddingY || 10;
+    		obj.wrapRectW = 0;
+    		obj.wrapRectH = 0;
+
+    		obj.delay = options.delay || 0;
+
+    		if(obj.texts){
+	    		//Count width arr text
+	    		for(var i = 0;i<obj.texts.length;i++){
+	    			var _text = obj.texts[i].text.replace(/\s/g,'&nbsp;');
+	    			//console.log(_text);
+	    			var _measureText = _this.measureText(_text,obj.texts[i].fontWeight,obj.texts[i].fontFamily,obj.texts[i].fontSize);
+
+	    			if (i==0) {
+	    				obj.wrapRectW += obj.wrapRectPaddingX;
+	    			}
+	    			obj.wrapRectW += parseInt(_measureText[0]);
+
+	    			if(obj.wrapRectH < parseInt(_measureText[1]/2)){
+	    				obj.wrapRectH = parseInt(_measureText[1]/2) + obj.wrapRectPaddingY;
+	    			}
+
+	    			//console.log(obj);
+	    			
+	    			obj.texts[i].x = obj.x;
+	    			obj.texts[i].y = obj.y;
+	    			obj.texts[i].width = parseInt(_measureText[0]);
+
+	    			//_this.drawText(obj._texts[i], function(){}, obj);
+	    		}
+
+	    		//Draw Wrap Rect
+	    		if (obj.wrapRect!=''){
+	    			_this.context.beginPath();
+
+	    			_this.context.fillStyle = obj.wrapRect;
+	    			switch(obj.textAlign){
+	    				case "center":
+	    					obj._realX = obj.x-obj.wrapRectW/2 +obj.wrapRectPaddingX/2;
+	    					_this.context.rect(obj.x-obj.wrapRectW/2,obj.y,obj.wrapRectW,obj.wrapRectH+obj.wrapRectPaddingY/2);	    				
+	    					break;
+
+	    				case "left":
+	    				case "start":
+	    					obj._realX = obj.x;
+	    					_this.context.rect(obj.x-obj.wrapRectPaddingX/2,obj.y,obj.wrapRectW,obj.wrapRectH+obj.wrapRectPaddingY/2);	
+	    					break;
+
+	    				case "right":
+	    				case "end":
+	    					obj._realX = obj.x-obj.wrapRectW+obj.wrapRectPaddingX;
+	    					_this.context.rect(obj.x-obj.wrapRectW+obj.wrapRectPaddingX/2,obj.y,obj.wrapRectW,obj.wrapRectH+obj.wrapRectPaddingY/2);	
+	    					break;
+	    			}
+	    			
+	    			//console.log(obj._realX);
+
+	    			_this.context.fill();					
+	    		}
+
+	    		console.log(obj.texts);
+	    		//Draw Text
+	    		setTimeout(function(){
+	    			for(var i = 0;i<obj.texts.length;i++){
+	    				console.log(obj._realX, obj.texts[i].width);
+
+	    				if(i>0){
+	    					obj.texts[i].x = obj.texts[i-1].x + obj.texts[i-1].width;
+	    				}else{
+	    					obj.texts[i].x = obj._realX;	
+	    				}
+	    				
+		    			_this.context.font = obj.texts[i].fontWeight + ' ' + obj.texts[i].fontSize + ' ' + obj.texts[i].fontFamily;
+		    			//console.log(obj.texts[i].fontWeight + ' ' + obj.texts[i].fontSize + ' ' + obj.texts[i].fontFamily);
+
+			    		_this.context.textAlign = 'left';
+			    		//_this.context.textBaseline = obj.textBaseline;
+
+			    		//Draw fill text
+						_this.context.fillStyle = obj.texts[i].style;
+			    		_this.context.fillText(obj.texts[i].text,obj.texts[i].x,obj.texts[i].y+obj.wrapRectH);
+
+			    		//Draw stroke text
+			    		if(obj.texts[i].strokeStyle){
+			    			_this.context.strokeStyle = obj.texts[i].strokeStyle;
+			    			_this.context.strokeText(obj.texts[i].text,obj.texts[i].x,obj.texts[i].y+obj.wrapRectH);	
+			    		}			    		
+		    		}
+	    		},100);
+	    		
+	    	}
+
+	    	//console.log(options);
+	    },
+
 	    drawText:function(options, callback){
+	    	//console.log(options);
+
 	    	var _this = this,
 	    		text = options.text || '',
 	    		x = options.x || 0,
 	    		y = options.y || 0,
-	    		font = options.font || '20px Arial',
+
+	    		fontFamily = options.fontFamily || 'Arial',
+	    		fontSize = options.fontSize || '20px',
+	    		fontWeight = options.fontWeight || 'normal',
+
 	    		style = options.style || 'black',
 	    		strokeStyle = options.strokeStyle || 'transparent',
+
+	    		textAlign = options.textAlign || 'center',
+	    		textBaseline = options.textBaseline || '',
+
+	    		wrapRect = options.wrapRect || '',
+	    		wrapRectPaddingX = options.wrapRectPaddingX || 10,
+	    		wrapRectPaddingY = options.wrapRectPaddingY || 10,
+	    		wrapRectW = options.wrapRectW || 0,
+	    		wrapRectH = options.wrapRectH || 0,
+
 	    		delay = options.delay || 0;
 
 	    	setTimeout(function(){
-	    		_this.context.font = font;
+	    		
+	    		//Draw Wrap Rect
+	    		if (wrapRect!=''){
+	    			var _measureText = _this.measureText(text,fontWeight,fontFamily,fontSize);
+	    			wrapRectW = _measureText[0] + wrapRectPaddingX;
+	    			wrapRectH = _measureText[1]/2 + wrapRectPaddingY;
 
-	    		//Draw fill text
-				_this.context.fillStyle = style;
-	    		_this.context.fillText(text,x,y);
+	    			_this.context.beginPath();
 
-	    		//Draw stroke text
-	    		_this.context.strokeStyle = strokeStyle;
-	    		_this.context.strokeText(text,x,y);
+	    			_this.context.fillStyle = wrapRect;
+	    			switch(textAlign){
+	    				case "center":
+	    					_this.context.rect(x-wrapRectW/2, y,wrapRectW, wrapRectH);	    				
+	    					break;
 
-		    	if (callback && typeof(callback) === "function") {
-				    callback();
-				}
+	    				case "left":
+	    				case "start":
+	    					_this.context.rect(x-wrapRectPaddingX/2, y,wrapRectW, wrapRectH);	
+	    					break;
+
+	    				case "right":
+	    				case "end":
+	    					_this.context.rect(x-wrapRectW+wrapRectPaddingX/2, y,wrapRectW, wrapRectH);	
+	    					break;
+	    			}
+	    			
+	    			_this.context.fill();
+					
+	    		}
+
+	    		//Draw Text
+	    		setTimeout(function(){
+	    			_this.context.font = fontWeight + ' ' + fontSize + ' ' + fontFamily;
+
+		    		_this.context.textAlign = textAlign;
+		    		_this.context.textBaseline = textBaseline;
+
+		    		//Draw fill text
+					_this.context.fillStyle = style;
+		    		_this.context.fillText(text,x,y+wrapRectH-wrapRectPaddingY/2);
+
+		    		//Draw stroke text
+		    		_this.context.strokeStyle = strokeStyle;
+		    		_this.context.strokeText(text,x,y+wrapRectH-wrapRectPaddingY/2);
+
+			    	if (callback && typeof(callback) === "function") {
+					    callback();
+					}
+	    		},100);
+	    		
 			},delay);
 
 	    	return this;	    	

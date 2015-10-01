@@ -1,33 +1,31 @@
 $(document).on('ready',function(){
 	//alert("Ready!");
-	
-	var geImg = new GenerateImage($('#mainObject')).init();
 
-	//console.log(geImg);
+	var geImg = new GenerateImage($('#mainObject'),{width:$('#mainObject')[0].clientWidth}).init();
+    geImg.drawAvatarToBackground(
+        {
+            url: "images/temp_5.png",
+            avatars: ['images/1.jpg','images/2.jpg','images/3.jpg','images/4.jpg','images/5.jpg'],
+            usernames: [
+                {	texts:[
+                		{text:'Hot ',fontFamily:'Arial',fontSize:'20px',fontWeight:'bold',style:'blue'},
+                		{text:'Boy 1 2 ',fontFamily:'Arial',fontSize:'20px',fontWeight:'italic',style:'red',strokeStyle:'black'},
+                		{text:'aaa',fontFamily:'Arial',fontSize:'10px',fontWeight:'italic',style:'green'}
+                	],
+                	wrapRect:'white',
+                	textAlign:'center'
 
-	//Use callback after drawImage because image need time to draw
-    /*geImg.drawImage({url:'img/Main.jpg',x:50,y:50,width:200,height:200, delay: 1000},function(){
-    	console.log("Callback");
-    	geImg.drawText({text:'Hello world!',x:50,y:100,font:'30px Arial',style:'blue', strokeStyle:'white'}).drawText({text:'This is man!',x:50,y:200,font:'30px Arial',style:'black'});
+            	}, 
+                {text:'Hot Boy 2',fontFamily:'Arial',fontSize:'15px',fontWeight:'italic',style:'blue', wrapRect:'white',textAlign:'start'},
+                {text:'Hot Boy 3',fontFamily:'Arial',fontSize:'15pt',fontWeight:'',style:'blue', wrapRect:'white',textAlign:'end'},
+                {text:'Hot Girl 123',fontFamily:'Arial',fontSize:'20pt',style:'red', strokeStyle:'blue', wrapRect:'white'},
+                {text:'Hot Boy 4',fontFamily:'Arial',fontSize:'20px',fontWeight:'normal',style:'blue', wrapRect:'white',textAlign:'left'}]
+        }
+    );
 
-    	geImg.drawImage('img/Main.jpg',100,150,100,100);
+    $('#btnSave').bind('click',function(){
+
+        geImg.saveImage();
     });
-
-    geImg.drawImage({url:'img/Main.jpg',x:350,y:50,width:200,height:200, delay: 500});
-   	geImg.drawText({text:'Hello world 2!',x:350,y:100,font:'10px Arial',style:'blue', delay: 1000}).drawText({text:'This is man 2!',x:350,y:200,font:'20px Arial',style:'black', delay: 1500});
-	*/
-
-	geImg.drawAvatarToBackground(
-		{
-			url: "images/temp_5.png",
-			avatars: ['images/1.jpg','images/2.jpg','images/3.jpg','images/4.jpg','images/5.jpg']
-		}
-	);
-
-
-	$('#btnSave').bind('click',function(){
-
-		geImg.saveImage();
-	});
 
 });
