@@ -166,7 +166,7 @@
 
 	    	var defineTransparent=function(x,y){
 			  var a=data[(y*w+x)*4+3];
-			  return(a==0);
+			  return(a<=120);
 			}
 
 			//console.log(url);
@@ -190,12 +190,12 @@
 				data=imgData.data;
 
 				if(_this.checkTransparent(data)){
-					console.log("Check transparent: "+countArea);
+					//console.log("Check transparent: "+countArea);
 					points=geom.contour(defineTransparent);
 
 					_this.context.save();
 					_this.context.beginPath();
-				    _this.context.moveTo(points[0][0],points[0][4]);
+				    _this.context.moveTo(points[0][0],points[0][1]);
 				    for(var i=1;i<points.length;i++){
 				      var point=points[i];
 				      _this.context.lineTo(point[0],point[1]);
@@ -205,9 +205,9 @@
 				    _this.context.fillStyle = '#fff';
 			      	_this.context.fill();
 
-			      	_this.context.lineWidth = 5;
-			      	_this.context.strokeStyle = '#fff';
-				    _this.context.stroke();
+			      	//_this.context.lineWidth = 1;
+			      	//_this.context.strokeStyle = '#fff';
+				    //_this.context.stroke();
 
 				    _this.context.clip();
 
@@ -367,11 +367,11 @@
 	    			_this.context.fill();					
 	    		}
 
-	    		console.log(obj.texts);
+	    		//console.log(obj.texts);
 	    		//Draw Text
 	    		setTimeout(function(){
 	    			for(var i = 0;i<obj.texts.length;i++){
-	    				console.log(obj._realX, obj.texts[i].width);
+	    				//console.log(obj._realX, obj.texts[i].width);
 
 	    				if(i>0){
 	    					obj.texts[i].x = obj.texts[i-1].x + obj.texts[i-1].width;
