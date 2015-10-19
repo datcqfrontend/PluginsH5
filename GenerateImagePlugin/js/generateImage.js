@@ -108,6 +108,8 @@
 	      	this.$elem.append(this.$canvas);
 
 	      	//this.displayMessage();
+
+	      	this.$canvas.hide();
 	      
 	      	return this;
 	    },
@@ -209,7 +211,7 @@
 			      	//_this.context.strokeStyle = '#fff';
 				    //_this.context.stroke();
 
-				    _this.context.clip();
+				    //_this.context.clip();
 
 					var arrX = [], arrY = [];
 			  		for(var j=0;j<points.length;j++){
@@ -244,6 +246,8 @@
 			  			getAreaTransparent();
 			  		});
 			  	}else{
+			  		_this.context.drawImage(imgOrigin,x,y,w,h);
+			  		_this.$canvas.show();
 
 			  		setTimeout(function(){
 			  			for(var i=0;i<countArea;i++){
